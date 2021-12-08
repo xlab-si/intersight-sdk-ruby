@@ -1,0 +1,20 @@
+# IntersightClient::BootVmediaDeviceList
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **count** | **Integer** | The total number of &#39;boot.VmediaDevice&#39; resources matching the request, accross all pages. The &#39;Count&#39; attribute is included when the HTTP GET request includes the &#39;$inlinecount&#39; parameter. | [optional] |
+| **results** | [**Array&lt;BootVmediaDevice&gt;**](BootVmediaDevice.md) | The array of &#39;boot.VmediaDevice&#39; resources matching the request. | [optional] |
+
+## Example
+
+```ruby
+require 'intersight_client'
+
+instance = IntersightClient::BootVmediaDeviceList.new(
+  count: null,
+  results: null
+)
+```
+

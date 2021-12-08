@@ -1,0 +1,24 @@
+# IntersightClient::IamPrivateKeySpecAllOf
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **class_id** | **String** | The fully-qualified name of the instantiated, concrete type. This property is used as a discriminator to identify the type of the payload when marshaling and unmarshaling data. | [default to &#39;iam.PrivateKeySpec&#39;] |
+| **object_type** | **String** | The fully-qualified name of the instantiated, concrete type. The value should be the same as the &#39;ClassId&#39; property. | [default to &#39;iam.PrivateKeySpec&#39;] |
+| **algorithm** | [**PkixKeyGenerationSpec**](PkixKeyGenerationSpec.md) |  | [optional] |
+| **certificate_request** | [**IamCertificateRequestRelationship**](IamCertificateRequestRelationship.md) |  | [optional] |
+
+## Example
+
+```ruby
+require 'intersight_client'
+
+instance = IntersightClient::IamPrivateKeySpecAllOf.new(
+  class_id: null,
+  object_type: null,
+  algorithm: null,
+  certificate_request: null
+)
+```
+
