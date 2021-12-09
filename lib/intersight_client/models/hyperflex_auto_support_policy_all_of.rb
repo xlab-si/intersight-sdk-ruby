@@ -151,7 +151,7 @@ module IntersightClient
         invalid_properties.push('invalid value for "object_type", object_type cannot be nil.')
       end
 
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)*$/)
       if !@service_ticket_receipient.nil? && @service_ticket_receipient !~ pattern
         invalid_properties.push("invalid value for \"service_ticket_receipient\", must conform to the pattern #{pattern}.")
       end
@@ -168,7 +168,7 @@ module IntersightClient
       return false if @object_type.nil?
       object_type_validator = EnumAttributeValidator.new('String', ["hyperflex.AutoSupportPolicy"])
       return false unless object_type_validator.valid?(@object_type)
-      return false if !@service_ticket_receipient.nil? && @service_ticket_receipient !~ Regexp.new(/^$|^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)
+      return false if !@service_ticket_receipient.nil? && @service_ticket_receipient !~ Regexp.new(/^$|^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)*$/)
       true
     end
 
@@ -195,7 +195,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] service_ticket_receipient Value to be assigned
     def service_ticket_receipient=(service_ticket_receipient)
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)*$/)
       if !service_ticket_receipient.nil? && service_ticket_receipient !~ pattern
         fail ArgumentError, "invalid value for \"service_ticket_receipient\", must conform to the pattern #{pattern}."
       end

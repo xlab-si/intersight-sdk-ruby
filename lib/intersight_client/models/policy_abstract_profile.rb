@@ -100,7 +100,7 @@ module IntersightClient
 
     # discriminator's property name in OpenAPI v3
     def self.openapi_discriminator_name
-      :'class_id'
+      :'ClassId'
     end
 
     # Initializes the object
@@ -164,7 +164,7 @@ module IntersightClient
         invalid_properties.push('invalid value for "description", the character length must be smaller than or equal to 1024.')
       end
 
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9]+[\x00-\xFF]*$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9]+[\x00-\u00FF]*$/)
       if !@description.nil? && @description !~ pattern
         invalid_properties.push("invalid value for \"description\", must conform to the pattern #{pattern}.")
       end
@@ -187,7 +187,7 @@ module IntersightClient
       object_type_validator = EnumAttributeValidator.new('String', ["chassis.IomProfile", "chassis.Profile", "fabric.SwitchClusterProfile", "fabric.SwitchProfile", "hyperflex.ClusterProfile", "hyperflex.NodeProfile", "kubernetes.AciCniProfile", "kubernetes.BaremetalNodeProfile", "kubernetes.ClusterProfile", "kubernetes.NodeGroupProfile", "kubernetes.VirtualMachineNodeProfile", "recovery.BackupProfile", "sdwan.Profile", "server.Profile", "server.ProfileTemplate"])
       return false unless object_type_validator.valid?(@object_type)
       return false if !@description.nil? && @description.to_s.length > 1024
-      return false if !@description.nil? && @description !~ Regexp.new(/^$|^[a-zA-Z0-9]+[\x00-\xFF]*$/)
+      return false if !@description.nil? && @description !~ Regexp.new(/^$|^[a-zA-Z0-9]+[\x00-\u00FF]*$/)
       return false if !@name.nil? && @name !~ Regexp.new(/^[a-zA-Z0-9_.-]{1,64}$/)
       type_validator = EnumAttributeValidator.new('String', ["instance"])
       return false unless type_validator.valid?(@type)
@@ -221,7 +221,7 @@ module IntersightClient
         fail ArgumentError, 'invalid value for "description", the character length must be smaller than or equal to 1024.'
       end
 
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9]+[\x00-\xFF]*$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9]+[\x00-\u00FF]*$/)
       if !description.nil? && description !~ pattern
         fail ArgumentError, "invalid value for \"description\", must conform to the pattern #{pattern}."
       end

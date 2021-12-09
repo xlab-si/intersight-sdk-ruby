@@ -28,7 +28,7 @@ module IntersightClient
 
       # Discriminator's property name (OpenAPI v3)
       def openapi_discriminator_name
-        :'class_id'
+        :'ClassId'
       end
 
       # Discriminator's mapping (OpenAPI v3)

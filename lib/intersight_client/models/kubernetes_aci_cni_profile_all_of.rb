@@ -295,62 +295,62 @@ module IntersightClient
         invalid_properties.push('invalid value for "object_type", object_type cannot be nil.')
       end
 
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-_]*[a-zA-Z0-9]$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-_]*[a-zA-Z0-9]$/)
       if !@aaep_name.nil? && @aaep_name !~ pattern
         invalid_properties.push("invalid value for \"aaep_name\", must conform to the pattern #{pattern}.")
       end
 
-      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\/([0-9]|[1-2][0-9]|3[0-2])$/)
+      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\/([0-9]|[1-2][0-9]|3[0-2])$/)
       if !@ext_svc_dyn_subnet_start.nil? && @ext_svc_dyn_subnet_start !~ pattern
         invalid_properties.push("invalid value for \"ext_svc_dyn_subnet_start\", must conform to the pattern #{pattern}.")
       end
 
-      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\/([0-9]|[1-2][0-9]|3[0-2])$/)
+      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\/([0-9]|[1-2][0-9]|3[0-2])$/)
       if !@ext_svc_static_subnet_start.nil? && @ext_svc_static_subnet_start !~ pattern
         invalid_properties.push("invalid value for \"ext_svc_static_subnet_start\", must conform to the pattern #{pattern}.")
       end
 
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-_]*[a-zA-Z0-9]$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-_]*[a-zA-Z0-9]$/)
       if !@l3_out_network_name.nil? && @l3_out_network_name !~ pattern
         invalid_properties.push("invalid value for \"l3_out_network_name\", must conform to the pattern #{pattern}.")
       end
 
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-_]*[a-zA-Z0-9]$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-_]*[a-zA-Z0-9]$/)
       if !@l3_out_policy_name.nil? && @l3_out_policy_name !~ pattern
         invalid_properties.push("invalid value for \"l3_out_policy_name\", must conform to the pattern #{pattern}.")
       end
 
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-_]*[a-zA-Z0-9]$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-_]*[a-zA-Z0-9]$/)
       if !@l3_out_tenant.nil? && @l3_out_tenant !~ pattern
         invalid_properties.push("invalid value for \"l3_out_tenant\", must conform to the pattern #{pattern}.")
       end
 
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-_]*[a-zA-Z0-9]$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-_]*[a-zA-Z0-9]$/)
       if !@nested_vmm_domain.nil? && @nested_vmm_domain !~ pattern
         invalid_properties.push("invalid value for \"nested_vmm_domain\", must conform to the pattern #{pattern}.")
       end
 
-      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\/([0-9]|[1-2][0-9]|3[0-2])$/)
+      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\/([0-9]|[1-2][0-9]|3[0-2])$/)
       if !@node_svc_subnet_start.nil? && @node_svc_subnet_start !~ pattern
         invalid_properties.push("invalid value for \"node_svc_subnet_start\", must conform to the pattern #{pattern}.")
       end
 
-      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\/([0-9]|[1-2][0-9]|3[0-2])$/)
+      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\/([0-9]|[1-2][0-9]|3[0-2])$/)
       if !@opflex_multicast_address_range.nil? && @opflex_multicast_address_range !~ pattern
         invalid_properties.push("invalid value for \"opflex_multicast_address_range\", must conform to the pattern #{pattern}.")
       end
 
-      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\/([0-9]|[1-2][0-9]|3[0-2])$/)
+      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\/([0-9]|[1-2][0-9]|3[0-2])$/)
       if !@pod_subnet_start.nil? && @pod_subnet_start !~ pattern
         invalid_properties.push("invalid value for \"pod_subnet_start\", must conform to the pattern #{pattern}.")
       end
 
-      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\/([0-9]|[1-2][0-9]|3[0-2])$/)
+      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\/([0-9]|[1-2][0-9]|3[0-2])$/)
       if !@svc_subnet_start.nil? && @svc_subnet_start !~ pattern
         invalid_properties.push("invalid value for \"svc_subnet_start\", must conform to the pattern #{pattern}.")
       end
 
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-_]*[a-zA-Z0-9]$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-_]*[a-zA-Z0-9]$/)
       if !@vrf.nil? && @vrf !~ pattern
         invalid_properties.push("invalid value for \"vrf\", must conform to the pattern #{pattern}.")
       end
@@ -367,18 +367,18 @@ module IntersightClient
       return false if @object_type.nil?
       object_type_validator = EnumAttributeValidator.new('String', ["kubernetes.AciCniProfile"])
       return false unless object_type_validator.valid?(@object_type)
-      return false if !@aaep_name.nil? && @aaep_name !~ Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-_]*[a-zA-Z0-9]$/)
-      return false if !@ext_svc_dyn_subnet_start.nil? && @ext_svc_dyn_subnet_start !~ Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\/([0-9]|[1-2][0-9]|3[0-2])$/)
-      return false if !@ext_svc_static_subnet_start.nil? && @ext_svc_static_subnet_start !~ Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\/([0-9]|[1-2][0-9]|3[0-2])$/)
-      return false if !@l3_out_network_name.nil? && @l3_out_network_name !~ Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-_]*[a-zA-Z0-9]$/)
-      return false if !@l3_out_policy_name.nil? && @l3_out_policy_name !~ Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-_]*[a-zA-Z0-9]$/)
-      return false if !@l3_out_tenant.nil? && @l3_out_tenant !~ Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-_]*[a-zA-Z0-9]$/)
-      return false if !@nested_vmm_domain.nil? && @nested_vmm_domain !~ Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-_]*[a-zA-Z0-9]$/)
-      return false if !@node_svc_subnet_start.nil? && @node_svc_subnet_start !~ Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\/([0-9]|[1-2][0-9]|3[0-2])$/)
-      return false if !@opflex_multicast_address_range.nil? && @opflex_multicast_address_range !~ Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\/([0-9]|[1-2][0-9]|3[0-2])$/)
-      return false if !@pod_subnet_start.nil? && @pod_subnet_start !~ Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\/([0-9]|[1-2][0-9]|3[0-2])$/)
-      return false if !@svc_subnet_start.nil? && @svc_subnet_start !~ Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\/([0-9]|[1-2][0-9]|3[0-2])$/)
-      return false if !@vrf.nil? && @vrf !~ Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-_]*[a-zA-Z0-9]$/)
+      return false if !@aaep_name.nil? && @aaep_name !~ Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-_]*[a-zA-Z0-9]$/)
+      return false if !@ext_svc_dyn_subnet_start.nil? && @ext_svc_dyn_subnet_start !~ Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\/([0-9]|[1-2][0-9]|3[0-2])$/)
+      return false if !@ext_svc_static_subnet_start.nil? && @ext_svc_static_subnet_start !~ Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\/([0-9]|[1-2][0-9]|3[0-2])$/)
+      return false if !@l3_out_network_name.nil? && @l3_out_network_name !~ Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-_]*[a-zA-Z0-9]$/)
+      return false if !@l3_out_policy_name.nil? && @l3_out_policy_name !~ Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-_]*[a-zA-Z0-9]$/)
+      return false if !@l3_out_tenant.nil? && @l3_out_tenant !~ Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-_]*[a-zA-Z0-9]$/)
+      return false if !@nested_vmm_domain.nil? && @nested_vmm_domain !~ Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-_]*[a-zA-Z0-9]$/)
+      return false if !@node_svc_subnet_start.nil? && @node_svc_subnet_start !~ Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\/([0-9]|[1-2][0-9]|3[0-2])$/)
+      return false if !@opflex_multicast_address_range.nil? && @opflex_multicast_address_range !~ Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\/([0-9]|[1-2][0-9]|3[0-2])$/)
+      return false if !@pod_subnet_start.nil? && @pod_subnet_start !~ Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\/([0-9]|[1-2][0-9]|3[0-2])$/)
+      return false if !@svc_subnet_start.nil? && @svc_subnet_start !~ Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\/([0-9]|[1-2][0-9]|3[0-2])$/)
+      return false if !@vrf.nil? && @vrf !~ Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-_]*[a-zA-Z0-9]$/)
       true
     end
 
@@ -405,7 +405,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] aaep_name Value to be assigned
     def aaep_name=(aaep_name)
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-_]*[a-zA-Z0-9]$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-_]*[a-zA-Z0-9]$/)
       if !aaep_name.nil? && aaep_name !~ pattern
         fail ArgumentError, "invalid value for \"aaep_name\", must conform to the pattern #{pattern}."
       end
@@ -416,7 +416,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] ext_svc_dyn_subnet_start Value to be assigned
     def ext_svc_dyn_subnet_start=(ext_svc_dyn_subnet_start)
-      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\/([0-9]|[1-2][0-9]|3[0-2])$/)
+      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\/([0-9]|[1-2][0-9]|3[0-2])$/)
       if !ext_svc_dyn_subnet_start.nil? && ext_svc_dyn_subnet_start !~ pattern
         fail ArgumentError, "invalid value for \"ext_svc_dyn_subnet_start\", must conform to the pattern #{pattern}."
       end
@@ -427,7 +427,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] ext_svc_static_subnet_start Value to be assigned
     def ext_svc_static_subnet_start=(ext_svc_static_subnet_start)
-      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\/([0-9]|[1-2][0-9]|3[0-2])$/)
+      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\/([0-9]|[1-2][0-9]|3[0-2])$/)
       if !ext_svc_static_subnet_start.nil? && ext_svc_static_subnet_start !~ pattern
         fail ArgumentError, "invalid value for \"ext_svc_static_subnet_start\", must conform to the pattern #{pattern}."
       end
@@ -438,7 +438,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] l3_out_network_name Value to be assigned
     def l3_out_network_name=(l3_out_network_name)
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-_]*[a-zA-Z0-9]$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-_]*[a-zA-Z0-9]$/)
       if !l3_out_network_name.nil? && l3_out_network_name !~ pattern
         fail ArgumentError, "invalid value for \"l3_out_network_name\", must conform to the pattern #{pattern}."
       end
@@ -449,7 +449,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] l3_out_policy_name Value to be assigned
     def l3_out_policy_name=(l3_out_policy_name)
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-_]*[a-zA-Z0-9]$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-_]*[a-zA-Z0-9]$/)
       if !l3_out_policy_name.nil? && l3_out_policy_name !~ pattern
         fail ArgumentError, "invalid value for \"l3_out_policy_name\", must conform to the pattern #{pattern}."
       end
@@ -460,7 +460,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] l3_out_tenant Value to be assigned
     def l3_out_tenant=(l3_out_tenant)
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-_]*[a-zA-Z0-9]$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-_]*[a-zA-Z0-9]$/)
       if !l3_out_tenant.nil? && l3_out_tenant !~ pattern
         fail ArgumentError, "invalid value for \"l3_out_tenant\", must conform to the pattern #{pattern}."
       end
@@ -471,7 +471,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] nested_vmm_domain Value to be assigned
     def nested_vmm_domain=(nested_vmm_domain)
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-_]*[a-zA-Z0-9]$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-_]*[a-zA-Z0-9]$/)
       if !nested_vmm_domain.nil? && nested_vmm_domain !~ pattern
         fail ArgumentError, "invalid value for \"nested_vmm_domain\", must conform to the pattern #{pattern}."
       end
@@ -482,7 +482,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] node_svc_subnet_start Value to be assigned
     def node_svc_subnet_start=(node_svc_subnet_start)
-      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\/([0-9]|[1-2][0-9]|3[0-2])$/)
+      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\/([0-9]|[1-2][0-9]|3[0-2])$/)
       if !node_svc_subnet_start.nil? && node_svc_subnet_start !~ pattern
         fail ArgumentError, "invalid value for \"node_svc_subnet_start\", must conform to the pattern #{pattern}."
       end
@@ -493,7 +493,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] opflex_multicast_address_range Value to be assigned
     def opflex_multicast_address_range=(opflex_multicast_address_range)
-      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\/([0-9]|[1-2][0-9]|3[0-2])$/)
+      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\/([0-9]|[1-2][0-9]|3[0-2])$/)
       if !opflex_multicast_address_range.nil? && opflex_multicast_address_range !~ pattern
         fail ArgumentError, "invalid value for \"opflex_multicast_address_range\", must conform to the pattern #{pattern}."
       end
@@ -504,7 +504,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] pod_subnet_start Value to be assigned
     def pod_subnet_start=(pod_subnet_start)
-      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\/([0-9]|[1-2][0-9]|3[0-2])$/)
+      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\/([0-9]|[1-2][0-9]|3[0-2])$/)
       if !pod_subnet_start.nil? && pod_subnet_start !~ pattern
         fail ArgumentError, "invalid value for \"pod_subnet_start\", must conform to the pattern #{pattern}."
       end
@@ -515,7 +515,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] svc_subnet_start Value to be assigned
     def svc_subnet_start=(svc_subnet_start)
-      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\/([0-9]|[1-2][0-9]|3[0-2])$/)
+      pattern = Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\/([0-9]|[1-2][0-9]|3[0-2])$/)
       if !svc_subnet_start.nil? && svc_subnet_start !~ pattern
         fail ArgumentError, "invalid value for \"svc_subnet_start\", must conform to the pattern #{pattern}."
       end
@@ -526,7 +526,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] vrf Value to be assigned
     def vrf=(vrf)
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-_]*[a-zA-Z0-9]$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-_]*[a-zA-Z0-9]$/)
       if !vrf.nil? && vrf !~ pattern
         fail ArgumentError, "invalid value for \"vrf\", must conform to the pattern #{pattern}."
       end

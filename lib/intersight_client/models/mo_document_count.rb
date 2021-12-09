@@ -54,7 +54,7 @@ module IntersightClient
 
     # discriminator's property name in OpenAPI v3
     def self.openapi_discriminator_name
-      :'object_type'
+      :'ObjectType'
     end
 
     # Initializes the object

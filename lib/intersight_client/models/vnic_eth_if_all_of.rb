@@ -373,7 +373,7 @@ module IntersightClient
         invalid_properties.push('invalid value for "name", the character length must be smaller than or equal to 31.')
       end
 
-      pattern = Regexp.new(/^[a-zA-Z0-9-._:]+$/)
+      pattern = Regexp.new(/^[a-zA-Z0-9\-._:]+$/)
       if !@name.nil? && @name !~ pattern
         invalid_properties.push("invalid value for \"name\", must conform to the pattern #{pattern}.")
       end
@@ -396,7 +396,7 @@ module IntersightClient
       mac_address_type_validator = EnumAttributeValidator.new('String', ["POOL", "STATIC"])
       return false unless mac_address_type_validator.valid?(@mac_address_type)
       return false if !@name.nil? && @name.to_s.length > 31
-      return false if !@name.nil? && @name !~ Regexp.new(/^[a-zA-Z0-9-._:]+$/)
+      return false if !@name.nil? && @name !~ Regexp.new(/^[a-zA-Z0-9\-._:]+$/)
       true
     end
 
@@ -458,7 +458,7 @@ module IntersightClient
         fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 31.'
       end
 
-      pattern = Regexp.new(/^[a-zA-Z0-9-._:]+$/)
+      pattern = Regexp.new(/^[a-zA-Z0-9\-._:]+$/)
       if !name.nil? && name !~ pattern
         fail ArgumentError, "invalid value for \"name\", must conform to the pattern #{pattern}."
       end

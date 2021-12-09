@@ -189,7 +189,7 @@ module IntersightClient
         invalid_properties.push('invalid value for "object_type", object_type cannot be nil.')
       end
 
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)*$/)
       if !@email.nil? && @email !~ pattern
         invalid_properties.push("invalid value for \"email\", must conform to the pattern #{pattern}.")
       end
@@ -206,7 +206,7 @@ module IntersightClient
       return false if @object_type.nil?
       object_type_validator = EnumAttributeValidator.new('String', ["aaa.AuditRecord"])
       return false unless object_type_validator.valid?(@object_type)
-      return false if !@email.nil? && @email !~ Regexp.new(/^$|^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)
+      return false if !@email.nil? && @email !~ Regexp.new(/^$|^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)*$/)
       true
     end
 
@@ -233,7 +233,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] email Value to be assigned
     def email=(email)
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)*$/)
       if !email.nil? && email !~ pattern
         fail ArgumentError, "invalid value for \"email\", must conform to the pattern #{pattern}."
       end

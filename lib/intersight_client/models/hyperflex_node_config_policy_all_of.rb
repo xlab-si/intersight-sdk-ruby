@@ -176,7 +176,7 @@ module IntersightClient
         invalid_properties.push('invalid value for "object_type", object_type cannot be nil.')
       end
 
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-]{1,59}$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-]{1,59}$/)
       if !@node_name_prefix.nil? && @node_name_prefix !~ pattern
         invalid_properties.push("invalid value for \"node_name_prefix\", must conform to the pattern #{pattern}.")
       end
@@ -193,7 +193,7 @@ module IntersightClient
       return false if @object_type.nil?
       object_type_validator = EnumAttributeValidator.new('String', ["hyperflex.NodeConfigPolicy"])
       return false unless object_type_validator.valid?(@object_type)
-      return false if !@node_name_prefix.nil? && @node_name_prefix !~ Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-]{1,59}$/)
+      return false if !@node_name_prefix.nil? && @node_name_prefix !~ Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-]{1,59}$/)
       true
     end
 
@@ -220,7 +220,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] node_name_prefix Value to be assigned
     def node_name_prefix=(node_name_prefix)
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-]{1,59}$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-]{1,59}$/)
       if !node_name_prefix.nil? && node_name_prefix !~ pattern
         fail ArgumentError, "invalid value for \"node_name_prefix\", must conform to the pattern #{pattern}."
       end

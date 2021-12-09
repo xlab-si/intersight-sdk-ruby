@@ -146,7 +146,7 @@ module IntersightClient
 
     # discriminator's property name in OpenAPI v3
     def self.openapi_discriminator_name
-      :'class_id'
+      :'ClassId'
     end
 
     # Initializes the object
@@ -281,7 +281,7 @@ module IntersightClient
         invalid_properties.push("invalid value for \"remote_file\", must conform to the pattern #{pattern}.")
       end
 
-      pattern = Regexp.new(/^$|^[ !#$%\(\)\+,\-\.\\/:\?@\[\]_\{\}=~a-zA-Z0-9]+$/)
+      pattern = Regexp.new(/^$|^[ !#$%\(\)\+,\-\.\/:\?@\[\]_\{\}=~a-zA-Z0-9]+$/)
       if !@remote_path.nil? && @remote_path !~ pattern
         invalid_properties.push("invalid value for \"remote_path\", must conform to the pattern #{pattern}.")
       end
@@ -332,7 +332,7 @@ module IntersightClient
       return false if !@remote_file.nil? && @remote_file.to_s.length > 235
       return false if !@remote_file.nil? && @remote_file.to_s.length < 0
       return false if !@remote_file.nil? && @remote_file !~ Regexp.new(/^$|^[ !#$%\(\)\+,\-\.:\?@\[\]_\{\}=~a-zA-Z0-9]+$/)
-      return false if !@remote_path.nil? && @remote_path !~ Regexp.new(/^$|^[ !#$%\(\)\+,\-\.\\/:\?@\[\]_\{\}=~a-zA-Z0-9]+$/)
+      return false if !@remote_path.nil? && @remote_path !~ Regexp.new(/^$|^[ !#$%\(\)\+,\-\.\/:\?@\[\]_\{\}=~a-zA-Z0-9]+$/)
       return false if !@username.nil? && @username.to_s.length > 255
       return false if !@username.nil? && @username.to_s.length < 0
       return false if !@volume_name.nil? && @volume_name.to_s.length > 47
@@ -441,7 +441,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] remote_path Value to be assigned
     def remote_path=(remote_path)
-      pattern = Regexp.new(/^$|^[ !#$%\(\)\+,\-\.\\/:\?@\[\]_\{\}=~a-zA-Z0-9]+$/)
+      pattern = Regexp.new(/^$|^[ !#$%\(\)\+,\-\.\/:\?@\[\]_\{\}=~a-zA-Z0-9]+$/)
       if !remote_path.nil? && remote_path !~ pattern
         fail ArgumentError, "invalid value for \"remote_path\", must conform to the pattern #{pattern}."
       end

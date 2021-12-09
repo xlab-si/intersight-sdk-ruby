@@ -101,7 +101,7 @@ module IntersightClient
 
     # discriminator's property name in OpenAPI v3
     def self.openapi_discriminator_name
-      :'class_id'
+      :'ClassId'
     end
 
     # Initializes the object
@@ -165,7 +165,7 @@ module IntersightClient
         invalid_properties.push('invalid value for "object_type", object_type cannot be nil.')
       end
 
-      pattern = Regexp.new(/^[a-zA-Z0-9-._:]*$/)
+      pattern = Regexp.new(/^[a-zA-Z0-9\-._:]*$/)
       if !@interface_name.nil? && @interface_name !~ pattern
         invalid_properties.push("invalid value for \"interface_name\", must conform to the pattern #{pattern}.")
       end
@@ -195,7 +195,7 @@ module IntersightClient
       return false if @object_type.nil?
       object_type_validator = EnumAttributeValidator.new('String', ["boot.Iscsi"])
       return false unless object_type_validator.valid?(@object_type)
-      return false if !@interface_name.nil? && @interface_name !~ Regexp.new(/^[a-zA-Z0-9-._:]*$/)
+      return false if !@interface_name.nil? && @interface_name !~ Regexp.new(/^[a-zA-Z0-9\-._:]*$/)
       return false if !@port.nil? && @port > 255
       return false if !@port.nil? && @port < 0
       return false if !@slot.nil? && @slot !~ Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]|L|MLOM|L1|L2|OCP)$/)
@@ -225,7 +225,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] interface_name Value to be assigned
     def interface_name=(interface_name)
-      pattern = Regexp.new(/^[a-zA-Z0-9-._:]*$/)
+      pattern = Regexp.new(/^[a-zA-Z0-9\-._:]*$/)
       if !interface_name.nil? && interface_name !~ pattern
         fail ArgumentError, "invalid value for \"interface_name\", must conform to the pattern #{pattern}."
       end

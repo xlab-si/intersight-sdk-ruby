@@ -140,7 +140,7 @@ module IntersightClient
 
     # discriminator's property name in OpenAPI v3
     def self.openapi_discriminator_name
-      :'class_id'
+      :'ClassId'
     end
 
     # Initializes the object

@@ -155,7 +155,7 @@ module IntersightClient
 
     # discriminator's property name in OpenAPI v3
     def self.openapi_discriminator_name
-      :'class_id'
+      :'ClassId'
     end
 
     # Initializes the object
@@ -285,7 +285,7 @@ module IntersightClient
         invalid_properties.push('invalid value for "environmental_score", must be greater than or equal to 0.0.')
       end
 
-      pattern = Regexp.new(/^$|^(?:http(s)?:\\/\\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:\/?#[\]@!\$&'\(\)\*\+,;=.]+$/)
+      pattern = Regexp.new(/^$|^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:\/?#\[\]@!\$&'\(\)\*\+,;=.]+$/)
       if !@external_url.nil? && @external_url !~ pattern
         invalid_properties.push("invalid value for \"external_url\", must conform to the pattern #{pattern}.")
       end
@@ -314,7 +314,7 @@ module IntersightClient
       return false if !@base_score.nil? && @base_score < 0.0
       return false if !@environmental_score.nil? && @environmental_score > 10.0
       return false if !@environmental_score.nil? && @environmental_score < 0.0
-      return false if !@external_url.nil? && @external_url !~ Regexp.new(/^$|^(?:http(s)?:\\/\\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:\/?#[\]@!\$&'\(\)\*\+,;=.]+$/)
+      return false if !@external_url.nil? && @external_url !~ Regexp.new(/^$|^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:\/?#\[\]@!\$&'\(\)\*\+,;=.]+$/)
       status_validator = EnumAttributeValidator.new('String', ["interim", "final"])
       return false unless status_validator.valid?(@status)
       return false if !@temporal_score.nil? && @temporal_score > 10.0
@@ -373,7 +373,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] external_url Value to be assigned
     def external_url=(external_url)
-      pattern = Regexp.new(/^$|^(?:http(s)?:\\/\\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:\/?#[\]@!\$&'\(\)\*\+,;=.]+$/)
+      pattern = Regexp.new(/^$|^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:\/?#\[\]@!\$&'\(\)\*\+,;=.]+$/)
       if !external_url.nil? && external_url !~ pattern
         fail ArgumentError, "invalid value for \"external_url\", must conform to the pattern #{pattern}."
       end

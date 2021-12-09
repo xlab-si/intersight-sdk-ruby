@@ -141,7 +141,7 @@ module IntersightClient
 
     # discriminator's property name in OpenAPI v3
     def self.openapi_discriminator_name
-      :'class_id'
+      :'ClassId'
     end
 
     # Initializes the object
@@ -243,7 +243,7 @@ module IntersightClient
         invalid_properties.push('invalid value for "object_type", object_type cannot be nil.')
       end
 
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)*$/)
       if !@domain_name.nil? && @domain_name !~ pattern
         invalid_properties.push("invalid value for \"domain_name\", must conform to the pattern #{pattern}.")
       end
@@ -260,7 +260,7 @@ module IntersightClient
       return false if @object_type.nil?
       object_type_validator = EnumAttributeValidator.new('String', ["iam.Idp"])
       return false unless object_type_validator.valid?(@object_type)
-      return false if !@domain_name.nil? && @domain_name !~ Regexp.new(/^$|^[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)
+      return false if !@domain_name.nil? && @domain_name !~ Regexp.new(/^$|^[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)*$/)
       type_validator = EnumAttributeValidator.new('String', ["saml", "oidc", "local"])
       return false unless type_validator.valid?(@type)
       true && super
@@ -289,7 +289,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] domain_name Value to be assigned
     def domain_name=(domain_name)
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)*$/)
       if !domain_name.nil? && domain_name !~ pattern
         fail ArgumentError, "invalid value for \"domain_name\", must conform to the pattern #{pattern}."
       end

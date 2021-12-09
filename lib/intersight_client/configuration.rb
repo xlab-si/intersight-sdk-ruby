@@ -33,21 +33,22 @@ module IntersightClient
     # Default server operation variables
     attr_accessor :server_operation_variables
 
-    # Defines API keys used with API Key authentications.
+    # Defines the API key used for authentication.
     #
-    # @return [Hash] key: parameter name, value: parameter value (API key)
-    #
-    # @example parameter name is "api_key", API key is "xxx" (e.g. "api_key=xxx" in query string)
-    #   config.api_key['api_key'] = 'xxx'
-    attr_accessor :api_key
+    # @return [OpenSSL::PKey::EC] private key
+    attr_reader :api_key
 
-    # Defines API key prefixes used with API Key authentications.
+    # Defines the API key used for authentication.
     #
-    # @return [Hash] key: parameter name, value: API key prefix
+    # @param api_key_str [String]: String value of the EC private key
+    def api_key= api_key_str
+      @api_key = OpenSSL::PKey::EC.new(api_key_str)
+    end
+
+    # Defines the ID of the API key used for authentication.
     #
-    # @example parameter name is "Authorization", API key prefix is "Token" (e.g. "Authorization: Token xxx" in headers)
-    #   config.api_key_prefix['api_key'] = 'Token'
-    attr_accessor :api_key_prefix
+    # @return [String] key ID
+    attr_accessor :api_key_id
 
     # Defines the username used with HTTP basic authentication.
     #
@@ -145,8 +146,8 @@ module IntersightClient
       @server_operation_index = {}
       @server_variables = {}
       @server_operation_variables = {}
-      @api_key = {}
-      @api_key_prefix = {}
+      @api_key = nil
+      @api_key_id = nil
       @client_side_validation = true
       @verify_ssl = true
       @verify_ssl_host = true
@@ -193,50 +194,6 @@ module IntersightClient
       return "#{scheme}://#{[host, base_path].join('/').gsub(/\/+/, '/')}".sub(/\/+\z/, '') if index == nil
 
       server_url(index, server_operation_variables.fetch(operation, server_variables), operation_server_settings[operation])
-    end
-
-    # Gets API key (with prefix if set).
-    # @param [String] param_name the parameter name of API key auth
-    def api_key_with_prefix(param_name, param_alias = nil)
-      key = @api_key[param_name]
-      key = @api_key.fetch(param_alias, key) unless param_alias.nil?
-      if @api_key_prefix[param_name]
-        "#{@api_key_prefix[param_name]} #{key}"
-      else
-        key
-      end
-    end
-
-    # Gets Basic Auth token string
-    def basic_auth_token
-      'Basic ' + ["#{username}:#{password}"].pack('m').delete("\r\n")
-    end
-
-    # Returns Auth Settings hash for api client.
-    def auth_settings
-      {
-        'cookieAuth' =>
-          {
-            type: 'api_key',
-            in: ,
-            key: 'X-Starship-Token',
-            value: api_key_with_prefix('cookieAuth')
-          },
-        'oAuth2' =>
-          {
-            type: 'oauth2',
-            in: 'header',
-            key: 'Authorization',
-            value: "Bearer #{access_token}"
-          },
-        'oAuth2' =>
-          {
-            type: 'oauth2',
-            in: 'header',
-            key: 'Authorization',
-            value: "Bearer #{access_token}"
-          },
-      }
     end
 
     # Returns an array of Server setting

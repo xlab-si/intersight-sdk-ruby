@@ -145,7 +145,7 @@ module IntersightClient
 
     # discriminator's property name in OpenAPI v3
     def self.openapi_discriminator_name
-      :'class_id'
+      :'ClassId'
     end
 
     # Initializes the object
@@ -251,7 +251,7 @@ module IntersightClient
         invalid_properties.push('invalid value for "object_type", object_type cannot be nil.')
       end
 
-      pattern = Regexp.new(/^$|^(?:http(s)?:\\/\\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:\/?#[\]@!\$&'\(\)\*\+,;=.]+$/)
+      pattern = Regexp.new(/^$|^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:\/?#\[\]@!\$&'\(\)\*\+,;=.]+$/)
       if !@external_url.nil? && @external_url !~ pattern
         invalid_properties.push("invalid value for \"external_url\", must conform to the pattern #{pattern}.")
       end
@@ -268,7 +268,7 @@ module IntersightClient
       return false if @object_type.nil?
       object_type_validator = EnumAttributeValidator.new('String', ["tam.AdvisoryDefinition"])
       return false unless object_type_validator.valid?(@object_type)
-      return false if !@external_url.nil? && @external_url !~ Regexp.new(/^$|^(?:http(s)?:\\/\\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:\/?#[\]@!\$&'\(\)\*\+,;=.]+$/)
+      return false if !@external_url.nil? && @external_url !~ Regexp.new(/^$|^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:\/?#\[\]@!\$&'\(\)\*\+,;=.]+$/)
       type_validator = EnumAttributeValidator.new('String', ["securityAdvisory", "fieldNotice"])
       return false unless type_validator.valid?(@type)
       true && super
@@ -297,7 +297,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] external_url Value to be assigned
     def external_url=(external_url)
-      pattern = Regexp.new(/^$|^(?:http(s)?:\\/\\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:\/?#[\]@!\$&'\(\)\*\+,;=.]+$/)
+      pattern = Regexp.new(/^$|^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:\/?#\[\]@!\$&'\(\)\*\+,;=.]+$/)
       if !external_url.nil? && external_url !~ pattern
         fail ArgumentError, "invalid value for \"external_url\", must conform to the pattern #{pattern}."
       end

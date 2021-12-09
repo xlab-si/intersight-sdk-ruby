@@ -121,7 +121,7 @@ module IntersightClient
 
     # discriminator's property name in OpenAPI v3
     def self.openapi_discriminator_name
-      :'class_id'
+      :'ClassId'
     end
 
     # Initializes the object
@@ -209,7 +209,7 @@ module IntersightClient
         invalid_properties.push('invalid value for "object_type", object_type cannot be nil.')
       end
 
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)*$/)
       if !@sender_email.nil? && @sender_email !~ pattern
         invalid_properties.push("invalid value for \"sender_email\", must conform to the pattern #{pattern}.")
       end
@@ -236,7 +236,7 @@ module IntersightClient
       return false unless object_type_validator.valid?(@object_type)
       min_severity_validator = EnumAttributeValidator.new('String', ["critical", "condition", "warning", "minor", "major"])
       return false unless min_severity_validator.valid?(@min_severity)
-      return false if !@sender_email.nil? && @sender_email !~ Regexp.new(/^$|^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)
+      return false if !@sender_email.nil? && @sender_email !~ Regexp.new(/^$|^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)*$/)
       return false if !@smtp_port.nil? && @smtp_port > 65535
       return false if !@smtp_port.nil? && @smtp_port < 1
       true && super
@@ -275,7 +275,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] sender_email Value to be assigned
     def sender_email=(sender_email)
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)*$/)
       if !sender_email.nil? && sender_email !~ pattern
         fail ArgumentError, "invalid value for \"sender_email\", must conform to the pattern #{pattern}."
       end

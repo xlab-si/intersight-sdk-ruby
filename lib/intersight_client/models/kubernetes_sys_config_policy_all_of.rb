@@ -181,7 +181,7 @@ module IntersightClient
         invalid_properties.push('invalid value for "dns_domain_name", the character length must be great than or equal to 0.')
       end
 
-      pattern = Regexp.new(/^$|^([a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,63}$/)
+      pattern = Regexp.new(/^$|^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,63}$/)
       if !@dns_domain_name.nil? && @dns_domain_name !~ pattern
         invalid_properties.push("invalid value for \"dns_domain_name\", must conform to the pattern #{pattern}.")
       end
@@ -216,7 +216,7 @@ module IntersightClient
       return false unless object_type_validator.valid?(@object_type)
       return false if !@dns_domain_name.nil? && @dns_domain_name.to_s.length > 253
       return false if !@dns_domain_name.nil? && @dns_domain_name.to_s.length < 0
-      return false if !@dns_domain_name.nil? && @dns_domain_name !~ Regexp.new(/^$|^([a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,63}$/)
+      return false if !@dns_domain_name.nil? && @dns_domain_name !~ Regexp.new(/^$|^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,63}$/)
       return false if !@dns_servers.nil? && @dns_servers.length > 3
       return false if !@dns_servers.nil? && @dns_servers.length < 1
       return false if !@ntp_servers.nil? && @ntp_servers.length > 3
@@ -257,7 +257,7 @@ module IntersightClient
         fail ArgumentError, 'invalid value for "dns_domain_name", the character length must be great than or equal to 0.'
       end
 
-      pattern = Regexp.new(/^$|^([a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,63}$/)
+      pattern = Regexp.new(/^$|^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,63}$/)
       if !dns_domain_name.nil? && dns_domain_name !~ pattern
         fail ArgumentError, "invalid value for \"dns_domain_name\", must conform to the pattern #{pattern}."
       end

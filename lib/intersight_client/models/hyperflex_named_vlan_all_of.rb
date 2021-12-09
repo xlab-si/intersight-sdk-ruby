@@ -129,7 +129,7 @@ module IntersightClient
         invalid_properties.push('invalid value for "object_type", object_type cannot be nil.')
       end
 
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9-_.]{1,32}$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9\-_.]{1,32}$/)
       if !@name.nil? && @name !~ pattern
         invalid_properties.push("invalid value for \"name\", must conform to the pattern #{pattern}.")
       end
@@ -154,7 +154,7 @@ module IntersightClient
       return false if @object_type.nil?
       object_type_validator = EnumAttributeValidator.new('String', ["hyperflex.NamedVlan"])
       return false unless object_type_validator.valid?(@object_type)
-      return false if !@name.nil? && @name !~ Regexp.new(/^$|^[a-zA-Z0-9-_.]{1,32}$/)
+      return false if !@name.nil? && @name !~ Regexp.new(/^$|^[a-zA-Z0-9\-_.]{1,32}$/)
       return false if !@vlan_id.nil? && @vlan_id > 4095
       return false if !@vlan_id.nil? && @vlan_id < 0
       true
@@ -183,7 +183,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] name Value to be assigned
     def name=(name)
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9-_.]{1,32}$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9\-_.]{1,32}$/)
       if !name.nil? && name !~ pattern
         fail ArgumentError, "invalid value for \"name\", must conform to the pattern #{pattern}."
       end

@@ -162,7 +162,7 @@ module IntersightClient
 
     # discriminator's property name in OpenAPI v3
     def self.openapi_discriminator_name
-      :'class_id'
+      :'ClassId'
     end
 
     # Initializes the object
@@ -282,7 +282,7 @@ module IntersightClient
         invalid_properties.push('invalid value for "capacity", the character length must be great than or equal to 1.')
       end
 
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9-]{3,48}$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9\-]{3,48}$/)
       if !@name.nil? && @name !~ pattern
         invalid_properties.push("invalid value for \"name\", must conform to the pattern #{pattern}.")
       end
@@ -302,7 +302,7 @@ module IntersightClient
       return false if !@capacity.nil? && @capacity.to_s.length < 1
       mode_validator = EnumAttributeValidator.new('String', ["Block", "Filesystem", ""])
       return false unless mode_validator.valid?(@mode)
-      return false if !@name.nil? && @name !~ Regexp.new(/^$|^[a-zA-Z0-9-]{3,48}$/)
+      return false if !@name.nil? && @name !~ Regexp.new(/^$|^[a-zA-Z0-9\-]{3,48}$/)
       true && super
     end
 
@@ -349,7 +349,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] name Value to be assigned
     def name=(name)
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9-]{3,48}$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9\-]{3,48}$/)
       if !name.nil? && name !~ pattern
         fail ArgumentError, "invalid value for \"name\", must conform to the pattern #{pattern}."
       end

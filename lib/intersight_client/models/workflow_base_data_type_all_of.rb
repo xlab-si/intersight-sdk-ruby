@@ -192,7 +192,7 @@ module IntersightClient
         invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
       end
 
-      pattern = Regexp.new(/^[a-zA-Z0-9]+([a-zA-Z0-9-_]*[a-zA-Z0-9])*$/)
+      pattern = Regexp.new(/^[a-zA-Z0-9]+([a-zA-Z0-9\-_]*[a-zA-Z0-9])*$/)
       if !@name.nil? && @name !~ pattern
         invalid_properties.push("invalid value for \"name\", must conform to the pattern #{pattern}.")
       end
@@ -214,7 +214,7 @@ module IntersightClient
       return false if !@label.nil? && @label !~ Regexp.new(/^[a-zA-Z0-9]+[\sa-zA-Z0-9_'.:-]{1,92}$/)
       return false if !@name.nil? && @name.to_s.length > 92
       return false if !@name.nil? && @name.to_s.length < 1
-      return false if !@name.nil? && @name !~ Regexp.new(/^[a-zA-Z0-9]+([a-zA-Z0-9-_]*[a-zA-Z0-9])*$/)
+      return false if !@name.nil? && @name !~ Regexp.new(/^[a-zA-Z0-9]+([a-zA-Z0-9\-_]*[a-zA-Z0-9])*$/)
       true
     end
 
@@ -268,7 +268,7 @@ module IntersightClient
         fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 1.'
       end
 
-      pattern = Regexp.new(/^[a-zA-Z0-9]+([a-zA-Z0-9-_]*[a-zA-Z0-9])*$/)
+      pattern = Regexp.new(/^[a-zA-Z0-9]+([a-zA-Z0-9\-_]*[a-zA-Z0-9])*$/)
       if !name.nil? && name !~ pattern
         fail ArgumentError, "invalid value for \"name\", must conform to the pattern #{pattern}."
       end

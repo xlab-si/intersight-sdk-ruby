@@ -91,7 +91,7 @@ module IntersightClient
 
     # discriminator's property name in OpenAPI v3
     def self.openapi_discriminator_name
-      :'class_id'
+      :'ClassId'
     end
 
     # Initializes the object
@@ -145,7 +145,7 @@ module IntersightClient
         invalid_properties.push('invalid value for "description", the character length must be smaller than or equal to 1024.')
       end
 
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9]+[\x00-\xFF]*$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9]+[\x00-\u00FF]*$/)
       if !@description.nil? && @description !~ pattern
         invalid_properties.push("invalid value for \"description\", must conform to the pattern #{pattern}.")
       end
@@ -168,7 +168,7 @@ module IntersightClient
       object_type_validator = EnumAttributeValidator.new('String', ["aaa.RetentionPolicy", "access.Policy", "adapter.ConfigPolicy", "bios.Policy", "boot.PrecisionPolicy", "certificatemanagement.Policy", "comm.HttpProxyPolicy", "compute.BiosPostPolicy", "compute.ServerPowerPolicy", "deviceconnector.Policy", "fabric.EthNetworkControlPolicy", "fabric.EthNetworkGroupPolicy", "fabric.EthNetworkPolicy", "fabric.FcNetworkPolicy", "fabric.FlowControlPolicy", "fabric.LinkAggregationPolicy", "fabric.LinkControlPolicy", "fabric.MulticastPolicy", "fabric.PortPolicy", "fabric.SwitchControlPolicy", "fabric.SystemQosPolicy", "fcpool.Pool", "hyperflex.AutoSupportPolicy", "hyperflex.ClusterBackupPolicy", "hyperflex.ClusterNetworkPolicy", "hyperflex.ClusterReplicationNetworkPolicy", "hyperflex.ClusterStoragePolicy", "hyperflex.ExtFcStoragePolicy", "hyperflex.ExtIscsiStoragePolicy", "hyperflex.LocalCredentialPolicy", "hyperflex.NodeConfigPolicy", "hyperflex.ProxySettingPolicy", "hyperflex.SoftwareVersionPolicy", "hyperflex.SysConfigPolicy", "hyperflex.UcsmConfigPolicy", "hyperflex.VcenterConfigPolicy", "iam.EndPointUserPolicy", "iam.LdapPolicy", "ipmioverlan.Policy", "ippool.Pool", "ippool.ShadowPool", "iqnpool.Pool", "kubernetes.AddonPolicy", "kubernetes.ContainerRuntimePolicy", "kubernetes.NetworkPolicy", "kubernetes.SysConfigPolicy", "kubernetes.TrustedRegistriesPolicy", "kubernetes.VersionPolicy", "kubernetes.VirtualMachineInfraConfigPolicy", "kubernetes.VirtualMachineInstanceType", "kvm.Policy", "macpool.Pool", "memory.PersistentMemoryPolicy", "networkconfig.Policy", "ntp.Policy", "power.Policy", "recovery.BackupConfigPolicy", "recovery.OnDemandBackup", "recovery.ScheduleConfigPolicy", "resourcepool.Pool", "sdcard.Policy", "sdwan.RouterPolicy", "sdwan.VmanageAccountPolicy", "smtp.Policy", "snmp.Policy", "sol.Policy", "ssh.Policy", "storage.StoragePolicy", "syslog.Policy", "thermal.Policy", "uuidpool.Pool", "vmedia.Policy", "vnic.EthAdapterPolicy", "vnic.EthNetworkPolicy", "vnic.EthQosPolicy", "vnic.FcAdapterPolicy", "vnic.FcNetworkPolicy", "vnic.FcQosPolicy", "vnic.IscsiAdapterPolicy", "vnic.IscsiBootPolicy", "vnic.IscsiStaticTargetPolicy", "vnic.LanConnectivityPolicy", "vnic.SanConnectivityPolicy"])
       return false unless object_type_validator.valid?(@object_type)
       return false if !@description.nil? && @description.to_s.length > 1024
-      return false if !@description.nil? && @description !~ Regexp.new(/^$|^[a-zA-Z0-9]+[\x00-\xFF]*$/)
+      return false if !@description.nil? && @description !~ Regexp.new(/^$|^[a-zA-Z0-9]+[\x00-\u00FF]*$/)
       return false if !@name.nil? && @name !~ Regexp.new(/^[a-zA-Z0-9_.:-]{1,64}$/)
       true && super
     end
@@ -200,7 +200,7 @@ module IntersightClient
         fail ArgumentError, 'invalid value for "description", the character length must be smaller than or equal to 1024.'
       end
 
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9]+[\x00-\xFF]*$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9]+[\x00-\u00FF]*$/)
       if !description.nil? && description !~ pattern
         fail ArgumentError, "invalid value for \"description\", must conform to the pattern #{pattern}."
       end

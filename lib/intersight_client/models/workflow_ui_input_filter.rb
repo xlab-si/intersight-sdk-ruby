@@ -96,7 +96,7 @@ module IntersightClient
 
     # discriminator's property name in OpenAPI v3
     def self.openapi_discriminator_name
-      :'class_id'
+      :'ClassId'
     end
 
     # Initializes the object
@@ -164,7 +164,7 @@ module IntersightClient
         invalid_properties.push('invalid value for "filters", number of items must be greater than or equal to 1.')
       end
 
-      pattern = Regexp.new(/^[a-zA-Z0-9]+([a-zA-Z0-9-_.]*[a-zA-Z0-9])*$/)
+      pattern = Regexp.new(/^[a-zA-Z0-9]+([a-zA-Z0-9\-_.]*[a-zA-Z0-9])*$/)
       if !@name.nil? && @name !~ pattern
         invalid_properties.push("invalid value for \"name\", must conform to the pattern #{pattern}.")
       end
@@ -183,7 +183,7 @@ module IntersightClient
       return false unless object_type_validator.valid?(@object_type)
       return false if !@filters.nil? && @filters.length > 1
       return false if !@filters.nil? && @filters.length < 1
-      return false if !@name.nil? && @name !~ Regexp.new(/^[a-zA-Z0-9]+([a-zA-Z0-9-_.]*[a-zA-Z0-9])*$/)
+      return false if !@name.nil? && @name !~ Regexp.new(/^[a-zA-Z0-9]+([a-zA-Z0-9\-_.]*[a-zA-Z0-9])*$/)
       true && super
     end
 
@@ -224,7 +224,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] name Value to be assigned
     def name=(name)
-      pattern = Regexp.new(/^[a-zA-Z0-9]+([a-zA-Z0-9-_.]*[a-zA-Z0-9])*$/)
+      pattern = Regexp.new(/^[a-zA-Z0-9]+([a-zA-Z0-9\-_.]*[a-zA-Z0-9])*$/)
       if !name.nil? && name !~ pattern
         fail ArgumentError, "invalid value for \"name\", must conform to the pattern #{pattern}."
       end

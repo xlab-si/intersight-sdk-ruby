@@ -129,12 +129,12 @@ module IntersightClient
         invalid_properties.push('invalid value for "object_type", object_type cannot be nil.')
       end
 
-      pattern = Regexp.new(/^[a-zA-Z0-9]+[+\s\\/a-zA-Z0-9_'.:-]{1,92}$/)
+      pattern = Regexp.new(/^[a-zA-Z0-9]+[+\s\/a-zA-Z0-9_'.:-]{1,92}$/)
       if !@label.nil? && @label !~ pattern
         invalid_properties.push("invalid value for \"label\", must conform to the pattern #{pattern}.")
       end
 
-      pattern = Regexp.new(/^[a-zA-Z0-9_.:-]*[+\s\\/a-zA-Z0-9_.:-]{1,64}$/)
+      pattern = Regexp.new(/^[a-zA-Z0-9_.:-]*[+\s\/a-zA-Z0-9_.:-]{1,64}$/)
       if !@value.nil? && @value !~ pattern
         invalid_properties.push("invalid value for \"value\", must conform to the pattern #{pattern}.")
       end
@@ -151,8 +151,8 @@ module IntersightClient
       return false if @object_type.nil?
       object_type_validator = EnumAttributeValidator.new('String', ["workflow.EnumEntry"])
       return false unless object_type_validator.valid?(@object_type)
-      return false if !@label.nil? && @label !~ Regexp.new(/^[a-zA-Z0-9]+[+\s\\/a-zA-Z0-9_'.:-]{1,92}$/)
-      return false if !@value.nil? && @value !~ Regexp.new(/^[a-zA-Z0-9_.:-]*[+\s\\/a-zA-Z0-9_.:-]{1,64}$/)
+      return false if !@label.nil? && @label !~ Regexp.new(/^[a-zA-Z0-9]+[+\s\/a-zA-Z0-9_'.:-]{1,92}$/)
+      return false if !@value.nil? && @value !~ Regexp.new(/^[a-zA-Z0-9_.:-]*[+\s\/a-zA-Z0-9_.:-]{1,64}$/)
       true
     end
 
@@ -179,7 +179,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] label Value to be assigned
     def label=(label)
-      pattern = Regexp.new(/^[a-zA-Z0-9]+[+\s\\/a-zA-Z0-9_'.:-]{1,92}$/)
+      pattern = Regexp.new(/^[a-zA-Z0-9]+[+\s\/a-zA-Z0-9_'.:-]{1,92}$/)
       if !label.nil? && label !~ pattern
         fail ArgumentError, "invalid value for \"label\", must conform to the pattern #{pattern}."
       end
@@ -190,7 +190,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] value Value to be assigned
     def value=(value)
-      pattern = Regexp.new(/^[a-zA-Z0-9_.:-]*[+\s\\/a-zA-Z0-9_.:-]{1,64}$/)
+      pattern = Regexp.new(/^[a-zA-Z0-9_.:-]*[+\s\/a-zA-Z0-9_.:-]{1,64}$/)
       if !value.nil? && value !~ pattern
         fail ArgumentError, "invalid value for \"value\", must conform to the pattern #{pattern}."
       end

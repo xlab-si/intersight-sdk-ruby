@@ -426,7 +426,7 @@ module IntersightClient
         invalid_properties.push("invalid value for \"data_ip_address\", must conform to the pattern #{pattern}.")
       end
 
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-]{1,59}$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-]{1,59}$/)
       if !@host_name_prefix.nil? && @host_name_prefix !~ pattern
         invalid_properties.push("invalid value for \"host_name_prefix\", must conform to the pattern #{pattern}.")
       end
@@ -474,7 +474,7 @@ module IntersightClient
       object_type_validator = EnumAttributeValidator.new('String', ["hyperflex.ClusterProfile"])
       return false unless object_type_validator.valid?(@object_type)
       return false if !@data_ip_address.nil? && @data_ip_address !~ Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$/)
-      return false if !@host_name_prefix.nil? && @host_name_prefix !~ Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-]{1,59}$/)
+      return false if !@host_name_prefix.nil? && @host_name_prefix !~ Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-]{1,59}$/)
       return false if !@hypervisor_control_ip_address.nil? && @hypervisor_control_ip_address !~ Regexp.new(/^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$/)
       hypervisor_type_validator = EnumAttributeValidator.new('String', ["ESXi", "HyperFlexAp", "IWE", "Hyper-V", "Unknown"])
       return false unless hypervisor_type_validator.valid?(@hypervisor_type)
@@ -524,7 +524,7 @@ module IntersightClient
     # Custom attribute writer method with validation
     # @param [Object] host_name_prefix Value to be assigned
     def host_name_prefix=(host_name_prefix)
-      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9-]{1,59}$/)
+      pattern = Regexp.new(/^$|^[a-zA-Z0-9][a-zA-Z0-9\-]{1,59}$/)
       if !host_name_prefix.nil? && host_name_prefix !~ pattern
         fail ArgumentError, "invalid value for \"host_name_prefix\", must conform to the pattern #{pattern}."
       end

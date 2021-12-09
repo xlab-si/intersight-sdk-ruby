@@ -153,7 +153,7 @@ module IntersightClient
         invalid_properties.push('invalid value for "domain", the character length must be smaller than or equal to 255.')
       end
 
-      pattern = Regexp.new(/^[a-zA-Z0-9-]+(.[a-zA-Z0-9-]+)*$/)
+      pattern = Regexp.new(/^[a-zA-Z0-9\-]+(.[a-zA-Z0-9\-]+)*$/)
       if !@domain.nil? && @domain !~ pattern
         invalid_properties.push("invalid value for \"domain\", must conform to the pattern #{pattern}.")
       end
@@ -180,7 +180,7 @@ module IntersightClient
       object_type_validator = EnumAttributeValidator.new('String', ["iam.LdapGroup"])
       return false unless object_type_validator.valid?(@object_type)
       return false if !@domain.nil? && @domain.to_s.length > 255
-      return false if !@domain.nil? && @domain !~ Regexp.new(/^[a-zA-Z0-9-]+(.[a-zA-Z0-9-]+)*$/)
+      return false if !@domain.nil? && @domain !~ Regexp.new(/^[a-zA-Z0-9\-]+(.[a-zA-Z0-9\-]+)*$/)
       return false if !@name.nil? && @name.to_s.length > 127
       return false if !@name.nil? && @name !~ Regexp.new(/^([^+\-][a-zA-Z0-9=!#$%()*+,-.:;@ _{|}~?&]*)$/)
       true
@@ -213,7 +213,7 @@ module IntersightClient
         fail ArgumentError, 'invalid value for "domain", the character length must be smaller than or equal to 255.'
       end
 
-      pattern = Regexp.new(/^[a-zA-Z0-9-]+(.[a-zA-Z0-9-]+)*$/)
+      pattern = Regexp.new(/^[a-zA-Z0-9\-]+(.[a-zA-Z0-9\-]+)*$/)
       if !domain.nil? && domain !~ pattern
         fail ArgumentError, "invalid value for \"domain\", must conform to the pattern #{pattern}."
       end

@@ -16,6 +16,10 @@ require 'logger'
 require 'tempfile'
 require 'time'
 require 'typhoeus'
+require 'base64'
+require 'digest'
+require 'openssl'
+require 'uri'
 
 module IntersightClient
   class ApiClient
@@ -94,7 +98,7 @@ module IntersightClient
       query_params = opts[:query_params] || {}
       form_params = opts[:form_params] || {}
 
-      update_params_for_auth! header_params, query_params, opts[:auth_names]
+      # update_params_for_auth! header_params, query_params, opts[:auth_names]
 
       # set ssl_verifyhosts option based on @config.verify_ssl_host (true/false)
       _verify_ssl_host = @config.verify_ssl_host ? 2 : 0
@@ -123,10 +127,81 @@ module IntersightClient
         end
       end
 
+      # Auth
+      # Typhoeus::Request called to build URI with parameters
+      target_uri = URI(Typhoeus::Request.new(url, req_opts).url)
+      auth_headers = {
+        "Host" => target_uri.host,
+        "Date" => Time.now.httpdate,
+        "Digest" => "SHA-256=" + Base64.encode64(get_sha256_digest(req_body)).gsub(/\n/, '')
+      }
+      path = target_uri.path
+      path = path + "?" + target_uri.query unless target_uri.query.nil?
+      request_target = http_method.to_s + " " + path
+      string_to_sign = prepare_str_to_sign(request_target, auth_headers)
+      auth_digest  = get_sha256_digest(string_to_sign.encode('utf-8'))
+      b64_signed_msg = get_ecdsasig_b64encode(auth_digest)
+      header_params["Authorization"] = get_auth_header(auth_headers, b64_signed_msg)
+      req_opts[:headers].merge!(auth_headers)
+      if @config.debugging
+        @config.logger.debug "\nHTTP request headers:\n" + header_params.map{|k,v| "#{k}: #{v}"}.join("\n") + "\n"
+      end
+
       request = Typhoeus::Request.new(url, req_opts)
       download_file(request) if opts[:return_type] == 'File'
       request
     end
+
+    # Auth helper methods
+    private
+
+    # Generate SHA256 digest from data
+    def get_sha256_digest(data)
+      data = "" if data.nil?
+      digest = Digest::SHA2.new(256)
+      digest.update(data)
+      return digest.digest
+    end
+
+    # Concatenates Intersight headers in preparation to be signed
+    def prepare_str_to_sign(request_target, auth_headers)
+      str = "(request-target): " + request_target + "\n"
+      i=0
+      auth_headers.each do |key, value|
+        str = str + key.to_s.downcase + ": " + value.to_s
+        if i< (auth_headers.length-1)
+          str = str + "\n"
+        end
+        i+=1
+      end
+      return str
+    end
+
+    # Gets ECDSA signed and choped encoded base64 signature
+    def get_ecdsasig_b64encode(data)
+      signature = @config.api_key.dsa_sign_asn1(data)
+      encoded = Base64.encode64(signature)
+      # Remove new lines in the string
+      return encoded.gsub(/\n/, '')
+    end
+
+    SIGNATURE_ALGORITHM  = "hs2019"
+
+    # Assembles an Intersight formatted authorization header
+    def get_auth_header(hdrs, signed_msg)
+      auth_str = ""
+      auth_str = auth_str + "Signature"
+      auth_str = auth_str + " " + "keyId=\"" + @config.api_key_id + "\"," + "algorithm=\"" + SIGNATURE_ALGORITHM + "\"," + "headers=\"(request-target)"
+      i=0
+      hdrs.each_key do |key|
+        auth_str = auth_str + " " + key.to_s.downcase
+      end
+      auth_str = auth_str + "\""
+      auth_str = auth_str + "," + "signature=\"" + signed_msg + "\""
+      return auth_str
+    end
+
+    public
 
     # Builds the HTTP request body
     #
