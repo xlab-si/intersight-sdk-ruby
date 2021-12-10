@@ -96,6 +96,37 @@ compute_api = IntersightClient::ComputeApi.new
 puts compute_api.get_compute_physical_summary_list()
 puts compute_api.get_compute_physical_summary_list({:count => true}) # Returns hit count
 ```
+## Development
+
+Dependencies:
+  
+ * ruby 2.7
+ * deps listed in gemspec file (added automatically)
+
+First, install Ruby Version Manager (`https://rvm.io`) as this will allow to have
+multiple versions of Ruby and Gemsets installed locally.
+
+Afterwards, follow these steps to setup the environment
+
+    # Install the specific Ruby version, for example 2.7
+    $ rvm install 2.7
+    # Pick this is the current version of Ruby
+    $ rvm use 2.7
+    # Create a new Gemset
+    $ rvm gemset create intersight_client
+    # Use this newly created Gemset
+    $ rvm gemset use intersight_client
+    # Check to see that the correct Ruby and Gemset are being used
+    $ rvm current
+    # Now, setup the intersight_client Gem
+    $ ./bin/setup
+    # If all went fine, you should now be able to run a simple test
+    $ bundle exec rake spec
+
+To enter the interactive console with the Intersight client already
+preloaded, simply use
+
+    $ ./bin/console
 
 ## Documentation for API Endpoints
 
