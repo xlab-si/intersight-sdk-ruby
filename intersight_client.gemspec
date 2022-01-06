@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/xlab-si/intersight-sdk-ruby"
   s.summary     = "Cisco Intersight Ruby Gem"
   s.description = "Gem for interaction with Cisco Intersight API"
-  s.license     = "Unlicense"
+  s.license     = "Apache-2.0"
   s.required_ruby_version = ">= 2.4"
 
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
