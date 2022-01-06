@@ -121,7 +121,7 @@ Afterwards, follow these steps to setup the environment
     # Now, setup the intersight_client Gem
     $ ./bin/setup
     # If all went fine, you should now be able to run a simple test
-    $ bundle exec rake spec
+    $ bundle exec rspec spec/test_spec.rb
 
 To enter the interactive console with the Intersight client already
 preloaded, simply use
