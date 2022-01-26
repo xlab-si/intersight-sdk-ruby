@@ -41,4 +41,6 @@ build/
 # others - manual
 /.idea/
 Gemfile.lock
+*~
+*.swp
 

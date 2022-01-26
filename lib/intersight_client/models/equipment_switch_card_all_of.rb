@@ -122,6 +122,11 @@ module IntersightClient
       attribute_map.values
     end
 
+    # Returns the key-value map of all the JSON attributes this model knows about
+    def self.acceptable_attribute_map
+      attribute_map
+    end
+
     # Attribute type mapping.
     def self.openapi_types
       {
@@ -165,8 +170,8 @@ module IntersightClient
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
-        if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `IntersightClient::EquipmentSwitchCardAllOf`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+        if (!self.class.acceptable_attribute_map.key?(k.to_sym))
+          fail ArgumentError, "`#{k}` is not a valid attribute in `#{self.class.name}`. Please check the name to make sure it's valid. List of attributes: " + self.class.acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }

@@ -11,5 +11,5 @@ OpenAPI Generator version: 5.3.1
 =end
 
 module IntersightClient
-  VERSION = '0.1.2'
+  VERSION = '0.1.3'
 end
