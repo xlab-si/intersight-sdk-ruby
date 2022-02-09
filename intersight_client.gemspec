@@ -19,8 +19,7 @@ Gem::Specification.new do |s|
   s.name        = "intersight_client"
   s.version     = IntersightClient::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["xlab-si"]
-  s.email       = ["intersight@cisco.com"]
+  s.authors     = ["XLAB"]
   s.homepage    = "https://github.com/xlab-si/intersight-sdk-ruby"
   s.summary     = "Cisco Intersight Ruby Gem"
   s.description = "Gem for interaction with Cisco Intersight API"
