@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir.chdir(__dir__) do
     `git ls-files -z`.split("\x0").reject do |f|
-      (f == __FILE__) || f.match(%r{\A(?:(?:bin|test|spec|features)/|\.(?:git|travis|circleci|openapi-generator|rubocop\.yml|rspec)|appveyor|intersight-openapi-.*\.yaml)})
+      (f == __FILE__) || f.match(%r{\A(?:(?:bin|docs|test|spec|features)/|\.(?:git|travis|circleci|openapi-generator|rubocop\.yml|rspec)|appveyor|intersight-openapi-.*\.yaml)})
     end
   end
   s.test_files    = `find spec/*`.split("\n")
