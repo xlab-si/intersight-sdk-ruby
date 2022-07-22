@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
       (f == __FILE__) || f.match(%r{\A(?:(?:bin|test|spec|features)/|\.(?:git|travis|circleci|openapi-generator|rubocop\.yml|rspec)|appveyor|intersight-openapi-.*\.yaml)})
     end
   end
-  s.test_files    = `find spec/*`.split("\n")
+  s.test_files    = []
   s.executables   = []
   s.require_paths = ["lib"]
 end
