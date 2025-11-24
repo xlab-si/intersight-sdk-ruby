@@ -1,7 +1,6 @@
 .gitignore
 .rspec
 .rubocop.yml
-.travis.yml
 Gemfile
 Rakefile
 docs/AaaAbstractAuditRecord.md
