@@ -61,3 +61,6 @@ patch -p1 < bin/oas_generator/patch-auth.diff
 
 # Fix incorrect type discriminator names in model files
 bin/oas_generator/replace-discriminator-names.sh
+
+# Fix specs not understand multiple discriminators
+bin/oas_generator/spec-discriminator-mapping-fix.sh
